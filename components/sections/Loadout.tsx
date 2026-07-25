@@ -28,7 +28,7 @@ const tools: Tool[] = [
   {
     name: "Nmap",
     accentColor: "#4A9EDA",
-    logo: <img src={`${CDN}/nmap/4a9eda`} alt="Nmap" width={58} height={58} style={{ objectFit: "contain" }} />,
+    logo: <img src={`/nmap.svg`} alt="Nmap" width={58} height={58} style={{ objectFit: "contain" }} />,
   },
   {
     name: "Linux Security",

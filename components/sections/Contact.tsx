@@ -179,7 +179,7 @@ export default function Contact() {
             transition={{ duration: 0.7, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
           >
             {/* Framed portrait */}
-            <div className="relative w-full" style={{ height: 273 }}>
+            <div className="relative w-full" style={{ height: 200 }}>
               <Corner pos="tl" />
               <Corner pos="tr" />
               <Corner pos="bl" />
