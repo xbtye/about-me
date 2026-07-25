@@ -22,7 +22,7 @@
   /* Card glass */
   --card-border:      rgba(0, 176, 255, 0.22);
   --card-border-hover: rgba(0, 176, 255, 0.65);
-  --card-bg:          rgba(10, 14, 20, 0.85);
+  --card-bg:          rgba(0, 0, 0, 0.75);
 }
 
 /* ── Tailwind theme bridge ──────────────────────────────────── */

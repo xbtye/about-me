@@ -161,7 +161,7 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
           style={{
             objectFit: "cover",
             objectPosition: "center top",
-            opacity: 0.16,
+            opacity: 0,
           }}
         />
       </div>
@@ -394,15 +394,12 @@ export default function Arsenal() {
           />
         </div>
 
-        {/* Three-tile grid: D3adphish (2/3) + stacked OwlSec & GitHub (1/3) */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          <div className="lg:col-span-2">
-            <Tile tool={tools[0]} index={0} featured />
-          </div>
-          <div className="flex flex-col gap-4">
-            <Tile tool={tools[1]} index={1} stretch />
-            <Tile tool={tools[2]} index={2} />
-          </div>
+        {/* Four equal cards in a 2x2 grid with consistent height */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-2 gap-4">
+          <Tile tool={tools[0]} index={0} featured stretch />
+          <Tile tool={tools[1]} index={1} stretch />
+          <Tile tool={tools[2]} index={2} stretch />
+          <Tile tool={tools[3]} index={3} stretch />
         </div>
       </div>
     </section>

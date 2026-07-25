@@ -38,6 +38,17 @@ export const tools: Tool[] = [
   
   {
     id: "03",
+    title: "Password Generator",
+    tag: "[ UTILITY ]",
+    tagColor: "cyan",
+    description:
+      "Built a secure password generator that creates strong, randomized credentials with custom length, character sets, and entropy controls. The tool helps avoid weak passwords and supports copy-to-clipboard for easy use in security workflows.",
+    stack: ["JavaScript", "HTML5", "CSS3"],
+    href: "https://github.com/Vishaal0003/password-generator",
+    bgVariant: "grid",
+  },
+  {
+    id: "04",
     title: "More on GitHub →",
     tag: "[ EXPLORE ]",
     tagColor: "cyan",
