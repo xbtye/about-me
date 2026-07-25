@@ -1,0 +1,292 @@
+@import "tailwindcss";
+
+/* ── Design Tokens ──────────────────────────────────────────── */
+:root {
+  --bg-void:          #04060a;
+  --bg-carbon:        #0a0e14;
+  --bg-elevated:      #11161f;
+  --accent:        #00b0ff;
+  --accent-soft:   #40c4ff;
+  --neon-red:         #00e5ff;
+  --neon-red-soft:    #80deea;
+  --chrome:           #c8d0d8;
+  --text-primary:     #e8eef5;
+  --text-muted:       #6b7785;
+  --grid-line:        rgba(0, 176, 255, 0.08);
+
+  /* Shadows */
+  --glow-accent:        0 0 24px rgba(0,176,255,0.22), 0 0 70px rgba(0,176,255,0.11);
+  --glow-accent-md:     0 0 36px rgba(0,176,255,0.34), 0 0 90px rgba(0,176,255,0.15);
+  --glow-red:         0 0 20px rgba(0,229,255,0.2), 0 0 60px rgba(0,229,255,0.08);
+
+  /* Card glass */
+  --card-border:      rgba(0, 176, 255, 0.22);
+  --card-border-hover: rgba(0, 176, 255, 0.65);
+  --card-bg:          rgba(10, 14, 20, 0.85);
+}
+
+/* ── Tailwind theme bridge ──────────────────────────────────── */
+@theme inline {
+  --color-void:       var(--bg-void);
+  --color-carbon:     var(--bg-carbon);
+  --color-elevated:   var(--bg-elevated);
+  --color-accent:       var(--accent);
+  --color-accent-soft:  var(--accent-soft);
+  --color-red-neo:    var(--neon-red);
+  --color-red-soft:   var(--neon-red-soft);
+  --color-chrome:     var(--chrome);
+  --color-primary:    var(--text-primary);
+  --color-muted:      var(--text-muted);
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-sans:    'Inter', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+}
+
+/* ── Base ───────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg-void);
+  color: var(--text-primary);
+}
+
+body {
+  background: var(--bg-void);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  font-feature-settings: 'ss01', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Selection ──────────────────────────────────────────────── */
+::selection {
+  background: rgba(0, 176, 255, 0.18);
+  color: var(--text-primary);
+}
+
+/* ── Focus visible ──────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-void);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 176, 255, 0.2);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 176, 255, 0.4);
+}
+
+/* ── Utility: glow text ─────────────────────────────────────── */
+.font-orbitron {
+  font-family: var(--font-orbitron), monospace;
+}
+
+.text-glow-accent {
+  text-shadow: 0 0 20px rgba(0, 176, 255, 0.7), 0 0 60px rgba(0, 176, 255, 0.25);
+}
+
+.text-glow-red {
+  text-shadow: 0 0 20px rgba(255, 42, 61, 0.6), 0 0 60px rgba(255, 42, 61, 0.2);
+}
+
+/* ── Utility: glass card ────────────────────────────────────── */
+.glass-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: var(--glow-accent), inset 0 1px 0 rgba(0,176,255,0.04);
+  transition: border-color 300ms ease, box-shadow 300ms ease, transform 300ms cubic-bezier(0.22,1,0.36,1);
+}
+
+.glass-card:hover {
+  border-color: var(--card-border-hover);
+  box-shadow: var(--glow-accent-md), inset 0 1px 0 rgba(0,176,255,0.07);
+  transform: translateY(-4px);
+}
+
+/* ── Utility: scanlines ─────────────────────────────────────── */
+.scanlines {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ── Marquee animation ──────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-quad {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-25%); }
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track-quad {
+  animation: marquee-quad 34s linear infinite;
+  will-change: transform;
+}
+
+/* ── Boot scan animation ────────────────────────────────────── */
+@keyframes boot-scan {
+  0%   { top: 0; opacity: 1; }
+  90%  { top: 100%; opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.boot-scan-line {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  box-shadow: 0 0 12px var(--accent), 0 0 40px rgba(0,176,255,0.4);
+  animation: boot-scan 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* ── Counter underline draw-on ──────────────────────────────── */
+@keyframes draw-line {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+.stat-underline {
+  display: block;
+  height: 1px;
+  background: var(--accent);
+  width: 0;
+  box-shadow: 0 0 8px var(--accent);
+  transition: width 600ms cubic-bezier(0.22,1,0.36,1);
+}
+
+.stat-done .stat-underline {
+  width: 100%;
+}
+
+/* ── Whoami breadcrumb pulse ────────────────────────────────── */
+@keyframes whoami-hint {
+  0%, 100% { opacity: 0.35; }
+  50%       { opacity: 0.7; }
+}
+
+/* ── Reticle locked animations ──────────────────────────────── */
+@keyframes reticle-ring-pulse {
+  0%, 100% { opacity: 0.45; }
+  50%       { opacity: 0.85; }
+}
+
+@keyframes reticle-sweep {
+  0%, 100% { opacity: 0.12; }
+  50%       { opacity: 0.0; }
+}
+
+.reticle-outer-ring {
+  animation: reticle-ring-pulse 2.8s ease-in-out infinite;
+}
+
+.reticle-sweep-ring {
+  animation: reticle-sweep 3.5s ease-in-out infinite;
+}
+
+/* ── HUD data flicker ───────────────────────────────────────── */
+@keyframes hud-data-flicker {
+  0%, 92%, 100% { opacity: 1; }
+  94%            { opacity: 0.55; }
+  96%            { opacity: 1; }
+  98%            { opacity: 0.7; }
+}
+
+.hud-value-live {
+  animation: hud-data-flicker 6s ease-in-out infinite;
+}
+
+/* ── Hero VISHAL watermark ────────────────────────────────── */
+.hero-watermark-letter {
+  font-size: clamp(5.5rem, 14vw, 13rem);
+}
+
+@media (max-width: 1023px) {
+  .hero-watermark-letter {
+    font-size: clamp(2.2rem, 8.5vw, 5rem);
+  }
+}
+
+/* ── Hero character portrait ────────────────────────────────── */
+.character-portrait {
+  object-fit: cover;
+  object-position: center 15%;
+}
+
+@media (max-width: 1023px) {
+  .character-portrait {
+    object-position: 70% 10%;
+  }
+}
+
+/* CTA touch feedback */
+@media (hover: none) {
+  .hero-cta-primary:active {
+    background: rgba(0,176,255,0.14) !important;
+    border-color: rgba(0,176,255,0.85) !important;
+    box-shadow: 0 0 24px rgba(0,176,255,0.3) !important;
+    color: #40c4ff !important;
+  }
+
+  .hero-cta-secondary:active {
+    border-color: rgba(0,176,255,0.5) !important;
+    color: var(--neon-red-soft) !important;
+  }
+}
+
+/* ── Reduced motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .marquee-track-quad,
+  .boot-scan-line,
+  .reticle-outer-ring,
+  .reticle-sweep-ring,
+  .hud-value-live {
+    animation: none;
+  }
+
+  .glass-card:hover {
+    transform: none;
+  }
+}
