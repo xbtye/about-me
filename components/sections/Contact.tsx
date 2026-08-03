@@ -131,14 +131,14 @@ export default function Contact() {
                   href={ch.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="glass-card group flex flex-col gap-5 p-7 rounded-sm focus-visible:ring-2"
+                  className="glass-card group flex flex-col gap-4 sm:gap-5 p-5 sm:p-7 rounded-sm focus-visible:ring-2"
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.3 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
                   aria-label={`Contact on ${ch.label}`}
                 >
                   <div
-                    className="w-11 h-11 rounded-sm flex items-center justify-center"
+                    className="w-9 h-9 sm:w-11 sm:h-11 rounded-sm flex items-center justify-center"
                     style={{
                       color: "var(--text-muted)",
                       background: "rgba(255,255,255,0.04)",
@@ -148,10 +148,10 @@ export default function Contact() {
                     {ch.icon}
                   </div>
                   <div className="flex flex-col gap-1.5">
-                    <span className="font-display font-bold text-lg" style={{ color: "var(--text-primary)" }}>
+                    <span className="font-display font-bold text-base sm:text-lg" style={{ color: "var(--text-primary)" }}>
                       {ch.label}
                     </span>
-                    <span className="font-mono text-xs" style={{ color: "var(--accent)", opacity: 0.7 }}>
+                    <span className="font-mono text-[10px] sm:text-xs break-all" style={{ color: "var(--accent)", opacity: 0.7 }}>
                       {ch.handle}
                     </span>
                     <p className="text-sm mt-1 leading-relaxed" style={{ color: "var(--text-muted)" }}>

@@ -135,7 +135,7 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
         "group relative rounded-xl overflow-hidden cursor-pointer flex flex-col border border-[rgba(0,176,255,0.22)]",
         "transition-all duration-300 shadow-[0_12px_40px_rgba(0,0,0,0.6),0_0_20px_rgba(0,176,255,0.12)]",
         "hover:border-[rgba(0,176,255,0.6)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_35px_rgba(0,176,255,0.25)]",
-        featured ? "min-h-[440px]" : "min-h-[320px]",
+        featured ? "min-h-[280px] sm:min-h-[440px]" : "min-h-[260px] sm:min-h-[320px]",
         stretch && "h-full",
       )}
       style={{
@@ -157,36 +157,36 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
     >
       {/* ── macOS Terminal Window Header Bar ── */}
       <div
-        className="flex items-center justify-between px-4 py-3 border-b shrink-0 select-none"
+        className="flex items-center justify-between px-3 sm:px-4 py-2.5 sm:py-3 border-b shrink-0 select-none gap-2"
         style={{
           background: "linear-gradient(180deg, rgba(22, 28, 38, 0.95) 0%, rgba(14, 18, 26, 0.95) 100%)",
           borderColor: "rgba(0, 176, 255, 0.15)",
         }}
       >
         {/* macOS Traffic Lights */}
-        <div className="flex items-center gap-2">
-          <span className="w-3 h-3 rounded-full bg-[#ff5f56] inline-flex items-center justify-center text-[8px] font-mono text-black/70 opacity-90 group-hover:opacity-100 transition-opacity">
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#ff5f56] inline-flex items-center justify-center text-[7px] sm:text-[8px] font-mono text-black/70 opacity-90 group-hover:opacity-100 transition-opacity">
             <span className="opacity-0 group-hover:opacity-100 font-bold">×</span>
           </span>
-          <span className="w-3 h-3 rounded-full bg-[#ffbd2e] inline-flex items-center justify-center text-[8px] font-mono text-black/70 opacity-90 group-hover:opacity-100 transition-opacity">
+          <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#ffbd2e] inline-flex items-center justify-center text-[7px] sm:text-[8px] font-mono text-black/70 opacity-90 group-hover:opacity-100 transition-opacity">
             <span className="opacity-0 group-hover:opacity-100 font-bold">–</span>
           </span>
-          <span className="w-3 h-3 rounded-full bg-[#27c93f] inline-flex items-center justify-center text-[8px] font-mono text-black/70 opacity-90 group-hover:opacity-100 transition-opacity">
+          <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#27c93f] inline-flex items-center justify-center text-[7px] sm:text-[8px] font-mono text-black/70 opacity-90 group-hover:opacity-100 transition-opacity">
             <span className="opacity-0 group-hover:opacity-100 font-bold">+</span>
           </span>
         </div>
 
-        {/* macOS Window Title Prompt */}
-        <div className="flex items-center gap-1.5 font-mono text-xs text-muted-foreground/80 tracking-wide">
-          <span className="text-[var(--accent)] font-semibold">zsh</span>
-          <span className="text-white/20">—</span>
-          <span className="text-gray-400">vishal@macbook: ~/projects/{slug}</span>
+        {/* macOS Window Title Prompt — hidden on very small screens, truncated on mid */}
+        <div className="hidden sm:flex items-center gap-1.5 font-mono text-[10px] sm:text-xs text-muted-foreground/80 tracking-wide min-w-0 truncate">
+          <span className="text-[var(--accent)] font-semibold shrink-0">zsh</span>
+          <span className="text-white/20 shrink-0">—</span>
+          <span className="text-gray-400 truncate">vishal@macbook: ~/{slug}</span>
         </div>
 
         {/* Tag Pill / Badge */}
         {tool.tag ? (
           <span
-            className="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border"
+            className="font-mono text-[8px] sm:text-[10px] uppercase tracking-wider px-1.5 sm:px-2 py-0.5 rounded border shrink-0 whitespace-nowrap"
             style={
               tool.tagColor === "red"
                 ? {
@@ -204,7 +204,7 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
             {tool.tag}
           </span>
         ) : (
-          <span className="font-mono text-[10px] text-gray-500">80×24</span>
+          <span className="font-mono text-[10px] text-gray-500 shrink-0">80×24</span>
         )}
       </div>
 
@@ -235,9 +235,9 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
       )}
 
       {/* ── Terminal Content Body ── */}
-      <div className="relative z-10 flex flex-col flex-1 p-6 gap-4 font-mono">
+      <div className="relative z-10 flex flex-col flex-1 p-4 sm:p-6 gap-3 sm:gap-4 font-mono">
         {/* Terminal ZSH CLI Prompt */}
-        <div className="flex items-center gap-2 text-xs flex-wrap">
+        <div className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs flex-wrap">
           <span className="text-[#39ff14] font-bold">➜</span>
           <span className="text-[#00b0ff] font-semibold">{slug}</span>
           <span className="text-gray-400">git:(<span className="text-[#ff5f56]">main</span>)</span>
@@ -250,7 +250,7 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
           <h3
             className={cn(
               "font-display font-bold leading-tight tracking-wide",
-              featured ? "text-2xl lg:text-3xl" : "text-xl",
+              featured ? "text-xl sm:text-2xl lg:text-3xl" : "text-lg sm:text-xl",
             )}
             style={{ color: "var(--text-primary)" }}
           >
@@ -260,7 +260,7 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
 
         {/* Description */}
         <p
-          className="font-sans text-sm leading-relaxed flex-1 text-gray-300/90 pl-6 border-l-2"
+          className="font-sans text-xs sm:text-sm leading-relaxed flex-1 text-gray-300/90 pl-4 sm:pl-6 border-l-2"
           style={{ borderColor: "rgba(0,176,255,0.25)" }}
         >
           {tool.description}
@@ -268,12 +268,12 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
 
         {/* Stack Flags / Terminal Pills */}
         {tool.stack.length > 0 && (
-          <div className="flex flex-wrap items-center gap-2 pt-2">
-            <span className="text-xs text-gray-500 font-mono tracking-wider mr-1">$ --deps:</span>
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-2">
+            <span className="text-[10px] sm:text-xs text-gray-500 font-mono tracking-wider mr-1">$ --deps:</span>
             {tool.stack.map((s) => (
               <span
                 key={s}
-                className="font-mono text-xs px-2.5 py-1 rounded bg-[rgba(0,176,255,0.06)] border border-[rgba(0,176,255,0.18)] text-[var(--accent-soft)]"
+                className="font-mono text-[10px] sm:text-xs px-2 sm:px-2.5 py-0.5 sm:py-1 rounded bg-[rgba(0,176,255,0.06)] border border-[rgba(0,176,255,0.18)] text-[var(--accent-soft)]"
               >
                 {s}
               </span>

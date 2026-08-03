@@ -64,8 +64,8 @@ export default function Stats() {
         {stats.map((stat, i) => (
           <motion.div
             key={stat.label}
-            className="glass-card flex flex-col gap-4 rounded-xl"
-            style={{ padding: "2rem 3rem", minWidth: 220 }}
+            className="glass-card flex flex-col gap-4 rounded-xl w-full sm:w-auto"
+            style={{ padding: "1.5rem 2rem", minWidth: 180 }}
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}

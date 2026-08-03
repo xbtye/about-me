@@ -84,11 +84,11 @@ const tools: Tool[] = [
 function ToolCard({ tool }: { tool: Tool }) {
   return (
     <div
-      className="flex flex-col items-center justify-center gap-4 shrink-0"
+      className="flex flex-col items-center justify-center gap-3 sm:gap-4 shrink-0"
       style={{
-        width: 160,
-        height: 160,
-        marginRight: 20,
+        width: "clamp(120px, 20vw, 160px)",
+        height: "clamp(120px, 20vw, 160px)",
+        marginRight: 12,
         background: "var(--card-bg)",
         border: `1px solid ${tool.accentColor}28`,
         borderRadius: 14,
@@ -97,12 +97,12 @@ function ToolCard({ tool }: { tool: Tool }) {
         boxShadow: `0 4px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.04)`,
       }}
     >
-      <div style={{ width: 58, height: 58, display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div className="flex items-center justify-center" style={{ width: "clamp(36px, 8vw, 58px)", height: "clamp(36px, 8vw, 58px)" }}>
         {tool.logo}
       </div>
       <span
         className="font-mono uppercase text-center leading-tight px-2"
-        style={{ fontSize: "0.6rem", letterSpacing: "0.1em", color: tool.accentColor, opacity: 0.8 }}
+        style={{ fontSize: "clamp(0.5rem, 1.2vw, 0.6rem)", letterSpacing: "0.1em", color: tool.accentColor, opacity: 0.8 }}
       >
         {tool.name}
       </span>
