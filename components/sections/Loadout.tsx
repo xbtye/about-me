@@ -89,7 +89,7 @@ function ToolCard({ tool }: { tool: Tool }) {
         width: 160,
         height: 160,
         marginRight: 20,
-        background: "rgba(10, 14, 20, 0.55)",
+        background: "var(--card-bg)",
         border: `1px solid ${tool.accentColor}28`,
         borderRadius: 14,
         backdropFilter: "blur(20px)",
@@ -138,7 +138,7 @@ export default function Loadout() {
             </motion.span>
             <motion.h2
               id="loadout-heading"
-              className="font-display font-bold leading-none"
+              className="font-minecraft leading-none"
               style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "var(--text-primary)" }}
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}

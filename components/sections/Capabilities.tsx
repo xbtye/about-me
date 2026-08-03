@@ -21,7 +21,7 @@ function CapabilityCard({ cap, index }: { cap: (typeof capabilities)[number]; in
     <motion.article
       className="relative flex flex-col gap-6 p-7 rounded-sm"
       style={{
-        background: "rgba(10, 14, 20, 0.4)",
+        background: "var(--card-bg)",
         border: `1px solid ${borderBase}`,
         backdropFilter: "blur(24px)",
         boxShadow: glowBase,

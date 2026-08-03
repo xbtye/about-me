@@ -201,7 +201,7 @@ export default function Contact() {
                 className="absolute bottom-0 left-0 right-0 pointer-events-none"
                 style={{
                   height: "38%",
-                  background: "linear-gradient(to bottom, transparent, rgba(10,14,20,0.97))",
+                  background: "linear-gradient(to bottom, transparent, var(--bg-void))",
                   zIndex: 10,
                 }}
                 aria-hidden="true"
