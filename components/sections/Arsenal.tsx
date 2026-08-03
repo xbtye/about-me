@@ -106,6 +106,7 @@ interface TileProps {
 
 function Tile({ tool, index, featured, stretch }: TileProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const slug = tool.title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
   /* 3D tilt on hover */
   const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -114,8 +115,8 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
     const rect = el.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    const rotX = ((y - rect.height / 2) / rect.height) * -8;
-    const rotY = ((x - rect.width / 2) / rect.width) * 8;
+    const rotX = ((y - rect.height / 2) / rect.height) * -6;
+    const rotY = ((x - rect.width / 2) / rect.width) * 6;
     el.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-4px)`;
     el.style.setProperty("--mx", `${x}px`);
     el.style.setProperty("--my", `${y}px`);
@@ -131,11 +132,18 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
     <motion.article
       ref={ref}
       className={cn(
-        "glass-card group relative rounded-lg overflow-hidden cursor-pointer flex flex-col",
-        "transition-[transform,border-color,box-shadow]",
-        featured ? "min-h-105" : "min-h-50",
+        "group relative rounded-xl overflow-hidden cursor-pointer flex flex-col border border-[rgba(0,176,255,0.22)]",
+        "transition-all duration-300 shadow-[0_12px_40px_rgba(0,0,0,0.6),0_0_20px_rgba(0,176,255,0.12)]",
+        "hover:border-[rgba(0,176,255,0.6)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_35px_rgba(0,176,255,0.25)]",
+        featured ? "min-h-[440px]" : "min-h-[320px]",
         stretch && "h-full",
       )}
+      style={{
+        background: "rgba(8, 12, 18, 0.92)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
+        willChange: "transform",
+      }}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
@@ -146,32 +154,66 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
       }}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
-      style={{ willChange: "transform" }}
     >
-      {/* Defender ambient background */}
+      {/* ── macOS Terminal Window Header Bar ── */}
       <div
-        className="absolute inset-0 pointer-events-none rounded-lg overflow-hidden"
-        aria-hidden="true"
+        className="flex items-center justify-between px-4 py-3 border-b shrink-0 select-none"
+        style={{
+          background: "linear-gradient(180deg, rgba(22, 28, 38, 0.95) 0%, rgba(14, 18, 26, 0.95) 100%)",
+          borderColor: "rgba(0, 176, 255, 0.15)",
+        }}
       >
-        <Image
-          src="/electron.png"
-          alt=""
-          fill
-          unoptimized
-          style={{
-            objectFit: "cover",
-            objectPosition: "center top",
-            opacity: 0,
-          }}
-        />
+        {/* macOS Traffic Lights */}
+        <div className="flex items-center gap-2">
+          <span className="w-3 h-3 rounded-full bg-[#ff5f56] inline-flex items-center justify-center text-[8px] font-mono text-black/70 opacity-90 group-hover:opacity-100 transition-opacity">
+            <span className="opacity-0 group-hover:opacity-100 font-bold">×</span>
+          </span>
+          <span className="w-3 h-3 rounded-full bg-[#ffbd2e] inline-flex items-center justify-center text-[8px] font-mono text-black/70 opacity-90 group-hover:opacity-100 transition-opacity">
+            <span className="opacity-0 group-hover:opacity-100 font-bold">–</span>
+          </span>
+          <span className="w-3 h-3 rounded-full bg-[#27c93f] inline-flex items-center justify-center text-[8px] font-mono text-black/70 opacity-90 group-hover:opacity-100 transition-opacity">
+            <span className="opacity-0 group-hover:opacity-100 font-bold">+</span>
+          </span>
+        </div>
+
+        {/* macOS Window Title Prompt */}
+        <div className="flex items-center gap-1.5 font-mono text-xs text-muted-foreground/80 tracking-wide">
+          <span className="text-[var(--accent)] font-semibold">zsh</span>
+          <span className="text-white/20">—</span>
+          <span className="text-gray-400">vishal@macbook: ~/projects/{slug}</span>
+        </div>
+
+        {/* Tag Pill / Badge */}
+        {tool.tag ? (
+          <span
+            className="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border"
+            style={
+              tool.tagColor === "red"
+                ? {
+                    color: "var(--neon-red-soft)",
+                    borderColor: "rgba(0,229,255,0.3)",
+                    background: "rgba(0,229,255,0.08)",
+                  }
+                : {
+                    color: "var(--accent-soft)",
+                    borderColor: "rgba(0,176,255,0.25)",
+                    background: "rgba(0,176,255,0.08)",
+                  }
+            }
+          >
+            {tool.tag}
+          </span>
+        ) : (
+          <span className="font-mono text-[10px] text-gray-500">80×24</span>
+        )}
       </div>
 
       {/* Spotlight layer */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"
+        className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"
         style={{
           background:
-            "radial-gradient(180px circle at var(--mx, 50%) var(--my, 50%), rgba(0,176,255,0.05) 0%, transparent 70%)",
+            "radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(0,176,255,0.06) 0%, transparent 70%)",
         }}
         aria-hidden="true"
       />
@@ -182,7 +224,7 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
       {/* Grid bg pattern for grid variant */}
       {tool.bgVariant === "grid" && (
         <div
-          className="absolute inset-0 opacity-20 pointer-events-none"
+          className="absolute inset-0 opacity-15 pointer-events-none"
           style={{
             backgroundImage:
               "linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px)",
@@ -192,69 +234,46 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
         />
       )}
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col flex-1 p-6 pb-8 gap-4">
-        {/* Header row */}
-        <div className="flex items-start justify-between gap-2">
-          <span
-            className="font-mono text-xs"
-            style={{ color: "var(--text-muted)" }}
-          >
-            {`// ${tool.id}`}
-          </span>
-          {tool.tag && (
-            <span
-              className="font-mono text-xs px-2 py-0.5 rounded-sm border"
-              style={
-                tool.tagColor === "red"
-                  ? {
-                    color: "var(--neon-red-soft)",
-                    borderColor: "rgba(0,229,255,0.3)",
-                    background: "rgba(0,229,255,0.08)",
-                  }
-                  : {
-                    color: "var(--accent-soft)",
-                    borderColor: "rgba(0,176,255,0.2)",
-                    background: "rgba(0,176,255,0.06)",
-                  }
-              }
-            >
-              {tool.tag}
-            </span>
-          )}
+      {/* ── Terminal Content Body ── */}
+      <div className="relative z-10 flex flex-col flex-1 p-6 gap-4 font-mono">
+        {/* Terminal ZSH CLI Prompt */}
+        <div className="flex items-center gap-2 text-xs flex-wrap">
+          <span className="text-[#39ff14] font-bold">➜</span>
+          <span className="text-[#00b0ff] font-semibold">{slug}</span>
+          <span className="text-gray-400">git:(<span className="text-[#ff5f56]">main</span>)</span>
+          <span className="text-gray-500">cat README.md</span>
         </div>
 
-        {/* Title */}
-        <h3
-          className={cn(
-            "font-display font-bold leading-tight",
-            featured ? "text-3xl" : "text-xl",
-          )}
-          style={{ color: "var(--text-primary)" }}
-        >
-          {tool.title}
-        </h3>
+        {/* Title Output */}
+        <div className="flex items-baseline gap-3 pt-1">
+          <span className="text-[var(--accent)] font-bold text-sm select-none">&gt;</span>
+          <h3
+            className={cn(
+              "font-display font-bold leading-tight tracking-wide",
+              featured ? "text-2xl lg:text-3xl" : "text-xl",
+            )}
+            style={{ color: "var(--text-primary)" }}
+          >
+            {tool.title}
+          </h3>
+        </div>
 
         {/* Description */}
         <p
-          className="text-sm leading-relaxed flex-1"
-          style={{ color: "var(--text-muted)" }}
+          className="font-sans text-sm leading-relaxed flex-1 text-gray-300/90 pl-6 border-l-2"
+          style={{ borderColor: "rgba(0,176,255,0.25)" }}
         >
           {tool.description}
         </p>
 
-        {/* Stack pills */}
+        {/* Stack Flags / Terminal Pills */}
         {tool.stack.length > 0 && (
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap items-center gap-2 pt-2">
+            <span className="text-xs text-gray-500 font-mono tracking-wider mr-1">$ --deps:</span>
             {tool.stack.map((s) => (
               <span
                 key={s}
-                className="font-mono text-xs px-2 py-0.5 rounded-sm"
-                style={{
-                  color: "var(--text-muted)",
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.07)",
-                }}
+                className="font-mono text-xs px-2.5 py-1 rounded bg-[rgba(0,176,255,0.06)] border border-[rgba(0,176,255,0.18)] text-[var(--accent-soft)]"
               >
                 {s}
               </span>
@@ -262,78 +281,77 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
           </div>
         )}
 
-        {/* Actions */}
-        <div className="flex flex-wrap gap-3 pt-1">
-          <a
-            href={tool.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-xs px-4 py-2 rounded-sm transition-all duration-200 focus-visible:ring-2 focus-visible:ring-offset-1"
-            style={{
-              color: "var(--text-primary)",
-              background: "rgba(0,176,255,0.08)",
-              border: "1px solid rgba(0,176,255,0.45)",
-              boxShadow: "0 0 14px rgba(0,176,255,0.15)",
-            }}
-            onMouseEnter={(e) => {
-              const el = e.currentTarget as HTMLElement;
-              el.style.background = "rgba(0,176,255,0.14)";
-              el.style.borderColor = "rgba(0,176,255,0.8)";
-              el.style.boxShadow = "0 0 24px rgba(0,176,255,0.35)";
-              el.style.color = "#40c4ff";
-            }}
-            onMouseLeave={(e) => {
-              const el = e.currentTarget as HTMLElement;
-              el.style.background = "rgba(0,176,255,0.08)";
-              el.style.borderColor = "rgba(0,176,255,0.45)";
-              el.style.boxShadow = "0 0 14px rgba(0,176,255,0.15)";
-              el.style.color = "var(--text-primary)";
-            }}
-          >
-            {tool.id === "03"
-              ? "Explore →"
-              : tool.stack.includes("Guide") || tool.stack.includes("eBOOK")
-                ? "Read →"
-                : "View Source →"}
-          </a>
-          {tool.docsHref && (
+        {/* Terminal Command Execution Actions */}
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-white/5 mt-auto relative z-20">
+          <div className="flex flex-wrap items-center gap-3">
             <a
-              href={tool.docsHref}
+              href={tool.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 font-mono text-xs px-4 py-2 rounded-sm transition-all duration-200"
+              className="inline-flex items-center gap-2 font-mono text-xs px-4 py-2 rounded-md transition-all duration-200 focus-visible:ring-2 cursor-pointer"
               style={{
-                color: "var(--text-muted)",
-                border: "1px solid rgba(255,255,255,0.1)",
+                color: "#e8eef5",
+                background: "rgba(0,176,255,0.12)",
+                border: "1px solid rgba(0,176,255,0.45)",
+                boxShadow: "0 0 16px rgba(0,176,255,0.15)",
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.borderColor = "rgba(0,176,255,0.4)";
-                el.style.color = "var(--accent)";
+                el.style.background = "rgba(0,176,255,0.22)";
+                el.style.borderColor = "rgba(0,176,255,0.9)";
+                el.style.boxShadow = "0 0 24px rgba(0,176,255,0.35)";
+                el.style.color = "#40c4ff";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.borderColor = "rgba(255,255,255,0.1)";
-                el.style.color = "var(--text-muted)";
+                el.style.background = "rgba(0,176,255,0.12)";
+                el.style.borderColor = "rgba(0,176,255,0.45)";
+                el.style.boxShadow = "0 0 16px rgba(0,176,255,0.15)";
+                el.style.color = "#e8eef5";
               }}
             >
-              Read Docs →
+              <span className="text-[#39ff14]">$</span>
+              <span>
+                {tool.id === "03"
+                  ? "./explore.sh →"
+                  : tool.stack.includes("Guide") || tool.stack.includes("eBOOK")
+                    ? "./read-docs.sh →"
+                    : "./run-source.sh →"}
+              </span>
             </a>
-          )}
+
+            {tool.docsHref && (
+              <a
+                href={tool.docsHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-mono text-xs px-4 py-2 rounded-md transition-all duration-200"
+                style={{
+                  color: "var(--text-muted)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                }}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.borderColor = "rgba(0,176,255,0.4)";
+                  el.style.color = "var(--accent)";
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.borderColor = "rgba(255,255,255,0.1)";
+                  el.style.color = "var(--text-muted)";
+                }}
+              >
+                $ cat docs.md →
+              </a>
+            )}
+          </div>
+
+          {/* Active Terminal Cursor */}
+          <div className="flex items-center gap-1.5 text-xs text-gray-500 font-mono">
+            <span className="w-2 h-3 bg-[#00b0ff] animate-pulse inline-block" />
+          </div>
         </div>
       </div>
-
-      {/* Hover border sweep on featured tile */}
-      {featured && (
-        <div
-          className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(0,176,255,0.07) 0%, transparent 50%, rgba(0,100,180,0.07) 100%)",
-          }}
-          aria-hidden="true"
-        />
-      )}
     </motion.article>
   );
 }

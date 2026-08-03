@@ -20,17 +20,17 @@ export const tools: Tool[] = [
     description:
       "Developed an AI-powered phishing email analysis tool that inspects email headers, URLs, and sender authenticity to identify potential phishing attempts. It detects spoofed domains, analyzes suspicious indicators, evaluates email risk, and generates detailed incident reports. The project simulates real-world SOC analyst workflows for efficient threat investigation and response.",
     stack: ["Python", "FastAPI", "React", "Generative AI"],
-    href: "https://github.com/Vishal0003/MailDefender",
+    href: "https://github.com/Vishaal0003/Mail-Defender",
     featured: true,
     bgVariant: "particles",
   },
   {
     id: "02",
-    title: "Stagenography",
+    title: "Steganography",
     tag: "[ SECURITY TOOL ]",
     tagColor: "cyan",
     description:
-      "Built an Image Steganography application that securely hides secret messages inside images without affecting their visible appearance. The project uses encryption and extraction techniques to ensure confidential communication while demonstrating practical information security concepts. ",
+      "Built an Image Steganography application that securely hides secret messages inside images without affecting their visible appearance. The project uses encryption and extraction techniques to ensure confidential communication while demonstrating practical information security concepts.",
     stack: ["HTML5", "CSS3", "JavaScript"],
     href: "https://github.com/Vishaal0003/Stagenography",
     bgVariant: "grid",
