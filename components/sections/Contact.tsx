@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 
 const LINKEDIN_URL = "https://linkedin.com/in/vishal-kumar-319668325/";
-const GITHUB_URL = "https://github.com/Vishaal0003";
+const GITHUB_URL = "https://github.com/xbtye";
 const EMAIL_URL = "mailto:vs1120204@gmail.com";
 
 const channels = [
@@ -26,7 +26,7 @@ const channels = [
   {
     id: "github",
     label: "GitHub",
-    handle: "https://github.com/Vishaal0003",
+    handle: "https://github.com/xbtye",
     href: GITHUB_URL,
     description: "Check out my open-source defensive security tools, Python automations, and lab scripts.",
     icon: (

@@ -180,7 +180,7 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
         <div className="hidden sm:flex items-center gap-1.5 font-mono text-[10px] sm:text-xs text-muted-foreground/80 tracking-wide min-w-0 truncate">
           <span className="text-[var(--accent)] font-semibold shrink-0">zsh</span>
           <span className="text-white/20 shrink-0">—</span>
-          <span className="text-gray-400 truncate">vishal@macbook: ~/{slug}</span>
+          <span className="text-gray-400 truncate">root@xbyte: ~/{slug}</span>
         </div>
 
         {/* Tag Pill / Badge */}
@@ -190,15 +190,15 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
             style={
               tool.tagColor === "red"
                 ? {
-                    color: "var(--neon-red-soft)",
-                    borderColor: "rgba(0,229,255,0.3)",
-                    background: "rgba(0,229,255,0.08)",
-                  }
+                  color: "var(--neon-red-soft)",
+                  borderColor: "rgba(0,229,255,0.3)",
+                  background: "rgba(0,229,255,0.08)",
+                }
                 : {
-                    color: "var(--accent-soft)",
-                    borderColor: "rgba(0,176,255,0.25)",
-                    background: "rgba(0,176,255,0.08)",
-                  }
+                  color: "var(--accent-soft)",
+                  borderColor: "rgba(0,176,255,0.25)",
+                  background: "rgba(0,176,255,0.08)",
+                }
             }
           >
             {tool.tag}
