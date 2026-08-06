@@ -312,7 +312,7 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
             >
               <span className="text-[#39ff14]">$</span>
               <span>
-                {tool.id === "03"
+                {tool.id === "04"
                   ? "./explore.sh →"
                   : tool.stack.includes("Guide") || tool.stack.includes("eBOOK")
                     ? "./read-docs.sh →"

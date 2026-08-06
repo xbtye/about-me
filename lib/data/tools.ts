@@ -38,13 +38,13 @@ export const tools: Tool[] = [
 
   {
     id: "03",
-    title: "Password Generator",
-    tag: "[ UTILITY ]",
+    title: "GCShop",
+    tag: "[ E-COMMERCE ]",
     tagColor: "cyan",
     description:
-      "Built a secure password generator that creates strong, randomized credentials with custom length, character sets, and entropy controls. The tool helps avoid weak passwords and supports copy-to-clipboard for easy use in security workflows.",
-    stack: ["JavaScript", "HTML5", "CSS3"],
-    href: "https://github.com/xbtye/password-generator",
+      "Built a modern e-commerce web platform for gift cards featuring an intuitive product catalog, dynamic price and balance calculators, high-contrast card management, and secure checkout workflows.",
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    href: "https://github.com/xbtye/gcshop",
     bgVariant: "grid",
   },
   {
