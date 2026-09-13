@@ -53,12 +53,12 @@ const TERMINAL_LINES: Line[] = [
 ];
 
 const COLOR: Record<Line["color"], string> = {
-  cyan: "#00b0ff",
-  red: "#00e5ff",
-  primary: "#e8eef5",
-  muted: "#6b7785",
-  dim: "rgba(0,176,255,0.3)",
-  blink: "#6b7785",
+  cyan: "#e6224c",
+  red: "#ff4d73",
+  primary: "#ffffff",
+  muted: "#8a99ad",
+  dim: "rgba(230,34,76,0.35)",
+  blink: "#8a99ad",
 };
 
 type Phase = null | "matrix" | "terminal";
@@ -147,7 +147,7 @@ export default function WhoamiEgg() {
               alignItems: "center",
               justifyContent: "center",
               backgroundImage:
-                "repeating-linear-gradient(0deg, rgba(0,176,255,0.015) 0px, rgba(0,176,255,0.015) 1px, transparent 1px, transparent 3px)",
+                "repeating-linear-gradient(0deg, rgba(230,34,76,0.015) 0px, rgba(230,34,76,0.015) 1px, transparent 1px, transparent 3px)",
             }}
           >
             {/* Ambient green/cyan glow shifts between phases */}
@@ -233,7 +233,7 @@ function MatrixContent({
             {hasHandle ? (
               <>
                 {line.text.split("VISHAL")[0]}
-                <span style={{ color: "#00b0ff", textShadow: "0 0 20px rgba(0,176,255,0.8), 0 0 60px rgba(0,140,220,0.4)" }}>
+                <span style={{ color: "#e6224c", textShadow: "0 0 20px rgba(230,34,76,0.8), 0 0 60px rgba(230,34,76,0.4)" }}>
                   VISHAL
                 </span>
                 {line.text.split("VISHAL")[1]}
@@ -259,14 +259,14 @@ function PhotoPanel() {
         flexDirection: "column",
         gap: "0.75rem",
         paddingRight: "1.25rem",
-        borderRight: "1px solid rgba(0,176,255,0.1)",
+        borderRight: "1px solid rgba(230,34,76,0.18)",
       }}
     >
       {/* Portrait frame */}
       <div style={{ position: "relative", width: "100%", height: 204 }}>
         {/* Corner brackets */}
         {(["tl", "tr", "bl", "br"] as const).map((c) => {
-          const b: React.CSSProperties = { position: "absolute", width: 14, height: 14, border: "1.5px solid rgba(0,176,255,0.6)" };
+          const b: React.CSSProperties = { position: "absolute", width: 14, height: 14, border: "1.5px solid rgba(230,34,76,0.6)" };
           const m: Record<string, React.CSSProperties> = {
             tl: { top: 0, left: 0, borderRight: "none", borderBottom: "none" },
             tr: { top: 0, right: 0, borderLeft: "none", borderBottom: "none" },
@@ -284,7 +284,7 @@ function PhotoPanel() {
           style={{
             objectFit: "contain",
             objectPosition: "center top",
-            filter: "drop-shadow(0 0 20px rgba(0,176,255,0.5))",
+            filter: "drop-shadow(0 0 20px rgba(230,34,76,0.5))",
           }}
         />
 
@@ -302,16 +302,16 @@ function PhotoPanel() {
 
       {/* Identity meta */}
       <div style={{ display: "flex", flexDirection: "column", gap: "0.3rem" }}>
-        <span style={{ fontFamily: "var(--font-mono),monospace", fontSize: "0.55rem", letterSpacing: "0.16em", color: "rgba(0,176,255,0.45)", userSelect: "none" }}>
+        <span style={{ fontFamily: "var(--font-mono),monospace", fontSize: "0.55rem", letterSpacing: "0.16em", color: "rgba(230,34,76,0.55)", userSelect: "none" }}>
           {"// DEFENDER FILE"}
         </span>
-        <span style={{ fontFamily: "var(--font-mono),monospace", fontSize: "0.72rem", letterSpacing: "0.12em", color: "#e8eef5", fontWeight: 600 }}>
+        <span style={{ fontFamily: "var(--font-mono),monospace", fontSize: "0.72rem", letterSpacing: "0.12em", color: "#ffffff", fontWeight: 600 }}>
           VISHAL KUMAR
         </span>
-        <span style={{ fontFamily: "var(--font-mono),monospace", fontSize: "0.58rem", letterSpacing: "0.1em", color: "rgba(107,119,133,0.75)" }}>
+        <span style={{ fontFamily: "var(--font-mono),monospace", fontSize: "0.58rem", letterSpacing: "0.1em", color: "rgba(138,153,173,0.85)" }}>
           CLEARANCE: LEVEL-4
         </span>
-        <span style={{ fontFamily: "var(--font-mono),monospace", fontSize: "0.58rem", letterSpacing: "0.1em", color: "rgba(0,229,255,0.7)", marginTop: "0.25rem" }}>
+        <span style={{ fontFamily: "var(--font-mono),monospace", fontSize: "0.58rem", letterSpacing: "0.1em", color: "#ff4d73", marginTop: "0.25rem" }}>
           ● ACTIVE
         </span>
       </div>
@@ -342,10 +342,10 @@ function TerminalContent({
         flexDirection: "column",
         padding: "1.75rem 2rem",
         background: "rgba(10,14,20,0.92)",
-        border: "1px solid rgba(0,176,255,0.18)",
+        border: "1px solid rgba(230,34,76,0.22)",
         borderRadius: 8,
         boxShadow:
-          "0 0 60px rgba(0,176,255,0.08), 0 0 120px rgba(0,176,255,0.04), inset 0 1px 0 rgba(255,255,255,0.04)",
+          "0 0 60px rgba(230,34,76,0.1), 0 0 120px rgba(230,34,76,0.05), inset 0 1px 0 rgba(255,255,255,0.04)",
         backdropFilter: "blur(24px)",
         WebkitBackdropFilter: "blur(24px)",
       }}
@@ -358,7 +358,7 @@ function TerminalContent({
           gap: 8,
           marginBottom: "1.5rem",
           paddingBottom: "1rem",
-          borderBottom: "1px solid rgba(0,176,255,0.12)",
+          borderBottom: "1px solid rgba(230,34,76,0.15)",
           flexShrink: 0,
         }}
       >
@@ -367,14 +367,14 @@ function TerminalContent({
           onClick={onClose}
         />
         <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#f7df1e", opacity: 0.5 }} />
-        <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#00b0ff", opacity: 0.4 }} />
+        <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#e6224c", opacity: 0.6 }} />
         <span
           style={{
             marginLeft: 12,
             fontFamily: "var(--font-mono), monospace",
             fontSize: "0.7rem",
             letterSpacing: "0.12em",
-            color: "rgba(0,176,255,0.45)",
+            color: "rgba(230,34,76,0.55)",
             userSelect: "none",
           }}
         >
@@ -425,11 +425,11 @@ function CornerPrompt({ hidden }: { hidden: boolean }) {
         fontFamily: "var(--font-mono), monospace",
         fontSize: "0.72rem",
         letterSpacing: "0.1em",
-        color: "#00b0ff",
+        color: "#e6224c",
         userSelect: "none",
         cursor: "default",
         whiteSpace: "nowrap",
-        textShadow: "0 0 10px rgba(0,176,255,0.7)",
+        textShadow: "0 0 10px rgba(230,34,76,0.7)",
         animation: "whoami-hint 4s ease-in-out infinite",
       }}
     >
@@ -445,7 +445,7 @@ function BlinkCursor() {
     const t = setInterval(() => setOn((v) => !v), 530);
     return () => clearInterval(t);
   }, []);
-  return <span style={{ color: "#00b0ff", opacity: on ? 1 : 0, userSelect: "none" }}>█</span>;
+  return <span style={{ color: "#e6224c", opacity: on ? 1 : 0, userSelect: "none" }}>█</span>;
 }
 
 function BlinkLine({ text }: { text: string }) {

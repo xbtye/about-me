@@ -16,7 +16,7 @@ export const tools: Tool[] = [
     id: "01",
     title: "Mail Defender",
     tag: "[ BLUE TEAM TOOL ]",
-    tagColor: "cyan",
+    tagColor: "red",
     description:
       "Developed an AI-powered phishing email analysis tool that inspects email headers, URLs, and sender authenticity to identify potential phishing attempts. It detects spoofed domains, analyzes suspicious indicators, evaluates email risk, and generates detailed incident reports. The project simulates real-world SOC analyst workflows for efficient threat investigation and response.",
     stack: ["Python", "FastAPI", "React", "Generative AI"],
@@ -28,7 +28,7 @@ export const tools: Tool[] = [
     id: "02",
     title: "Steganography",
     tag: "[ SECURITY TOOL ]",
-    tagColor: "cyan",
+    tagColor: "red",
     description:
       "Built an Image Steganography application that securely hides secret messages inside images without affecting their visible appearance. The project uses encryption and extraction techniques to ensure confidential communication while demonstrating practical information security concepts.",
     stack: ["HTML5", "CSS3", "JavaScript"],
@@ -40,7 +40,7 @@ export const tools: Tool[] = [
     id: "03",
     title: "GCShop",
     tag: "[ E-COMMERCE ]",
-    tagColor: "cyan",
+    tagColor: "red",
     description:
       "Built a modern e-commerce web platform for gift cards featuring an intuitive product catalog, dynamic price and balance calculators, high-contrast card management, and secure checkout workflows.",
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
@@ -51,7 +51,7 @@ export const tools: Tool[] = [
     id: "04",
     title: "More on GitHub →",
     tag: "[ EXPLORE ]",
-    tagColor: "cyan",
+    tagColor: "red",
     description: "Access my repository of cybersecurity automation scripts, tools, and security research.",
     stack: [],
     href: "https://github.com/xbtye",

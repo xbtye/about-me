@@ -58,7 +58,7 @@ function FeaturedBg() {
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < 90) {
             const alpha = (1 - dist / 90) * 0.18;
-            ctx.strokeStyle = `rgba(0,176,255,${alpha})`;
+            ctx.strokeStyle = `rgba(230,34,76,${alpha})`;
             ctx.lineWidth = 0.5;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
@@ -70,7 +70,7 @@ function FeaturedBg() {
 
       /* Draw nodes */
       nodes.forEach((n) => {
-        ctx.fillStyle = "rgba(0,176,255,0.25)";
+        ctx.fillStyle = "rgba(230,34,76,0.35)";
         ctx.beginPath();
         ctx.arc(n.x, n.y, 1.5, 0, Math.PI * 2);
         ctx.fill();
@@ -132,9 +132,9 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
     <motion.article
       ref={ref}
       className={cn(
-        "group relative rounded-xl overflow-hidden cursor-pointer flex flex-col border border-[rgba(0,176,255,0.22)]",
-        "transition-all duration-300 shadow-[0_12px_40px_rgba(0,0,0,0.6),0_0_20px_rgba(0,176,255,0.12)]",
-        "hover:border-[rgba(0,176,255,0.6)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_35px_rgba(0,176,255,0.25)]",
+        "group relative rounded-xl overflow-hidden cursor-pointer flex flex-col border border-[rgba(230,34,76,0.22)]",
+        "transition-all duration-300 shadow-[0_12px_40px_rgba(0,0,0,0.6),0_0_20px_rgba(230,34,76,0.12)]",
+        "hover:border-[rgba(230,34,76,0.65)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_35px_rgba(230,34,76,0.25)]",
         featured ? "min-h-[280px] sm:min-h-[440px]" : "min-h-[260px] sm:min-h-[320px]",
         stretch && "h-full",
       )}
@@ -160,7 +160,7 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
         className="flex items-center justify-between px-3 sm:px-4 py-2.5 sm:py-3 border-b shrink-0 select-none gap-2"
         style={{
           background: "linear-gradient(180deg, rgba(22, 28, 38, 0.95) 0%, rgba(14, 18, 26, 0.95) 100%)",
-          borderColor: "rgba(0, 176, 255, 0.15)",
+          borderColor: "rgba(230, 34, 76, 0.18)",
         }}
       >
         {/* macOS Traffic Lights */}
@@ -187,19 +187,11 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
         {tool.tag ? (
           <span
             className="font-mono text-[8px] sm:text-[10px] uppercase tracking-wider px-1.5 sm:px-2 py-0.5 rounded border shrink-0 whitespace-nowrap"
-            style={
-              tool.tagColor === "red"
-                ? {
-                  color: "var(--neon-red-soft)",
-                  borderColor: "rgba(0,229,255,0.3)",
-                  background: "rgba(0,229,255,0.08)",
-                }
-                : {
-                  color: "var(--accent-soft)",
-                  borderColor: "rgba(0,176,255,0.25)",
-                  background: "rgba(0,176,255,0.08)",
-                }
-            }
+            style={{
+              color: "#ff6b8b",
+              borderColor: "rgba(230,34,76,0.35)",
+              background: "rgba(230,34,76,0.12)",
+            }}
           >
             {tool.tag}
           </span>
@@ -213,7 +205,7 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
         className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"
         style={{
           background:
-            "radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(0,176,255,0.06) 0%, transparent 70%)",
+            "radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(230,34,76,0.08) 0%, transparent 70%)",
         }}
         aria-hidden="true"
       />
@@ -239,9 +231,9 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
         {/* Terminal ZSH CLI Prompt */}
         <div className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs flex-wrap">
           <span className="text-[#39ff14] font-bold">➜</span>
-          <span className="text-[#00b0ff] font-semibold">{slug}</span>
+          <span className="text-[#ff4d73] font-semibold">{slug}</span>
           <span className="text-gray-400">git:(<span className="text-[#ff5f56]">main</span>)</span>
-          <span className="text-gray-500">cat README.md</span>
+          <span className="text-gray-400">cat README.md</span>
         </div>
 
         {/* Title Output */}
@@ -260,8 +252,8 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
 
         {/* Description */}
         <p
-          className="font-sans text-xs sm:text-sm leading-relaxed flex-1 text-gray-300/90 pl-4 sm:pl-6 border-l-2"
-          style={{ borderColor: "rgba(0,176,255,0.25)" }}
+          className="font-sans text-xs sm:text-sm leading-relaxed flex-1 text-gray-200 pl-4 sm:pl-6 border-l-2"
+          style={{ borderColor: "rgba(230,34,76,0.3)" }}
         >
           {tool.description}
         </p>
@@ -269,11 +261,11 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
         {/* Stack Flags / Terminal Pills */}
         {tool.stack.length > 0 && (
           <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-2">
-            <span className="text-[10px] sm:text-xs text-gray-500 font-mono tracking-wider mr-1">$ --deps:</span>
+            <span className="text-[10px] sm:text-xs text-gray-400 font-mono tracking-wider mr-1">$ --deps:</span>
             {tool.stack.map((s) => (
               <span
                 key={s}
-                className="font-mono text-[10px] sm:text-xs px-2 sm:px-2.5 py-0.5 sm:py-1 rounded bg-[rgba(0,176,255,0.06)] border border-[rgba(0,176,255,0.18)] text-[var(--accent-soft)]"
+                className="font-mono text-[10px] sm:text-xs px-2 sm:px-2.5 py-0.5 sm:py-1 rounded bg-[rgba(230,34,76,0.1)] border border-[rgba(230,34,76,0.28)] text-white font-medium"
               >
                 {s}
               </span>
@@ -290,24 +282,24 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-mono text-xs px-4 py-2 rounded-md transition-all duration-200 focus-visible:ring-2 cursor-pointer"
               style={{
-                color: "#e8eef5",
-                background: "rgba(0,176,255,0.12)",
-                border: "1px solid rgba(0,176,255,0.45)",
-                boxShadow: "0 0 16px rgba(0,176,255,0.15)",
+                color: "#ffffff",
+                background: "rgba(230,34,76,0.14)",
+                border: "1px solid rgba(230,34,76,0.5)",
+                boxShadow: "0 0 16px rgba(230,34,76,0.18)",
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.background = "rgba(0,176,255,0.22)";
-                el.style.borderColor = "rgba(0,176,255,0.9)";
-                el.style.boxShadow = "0 0 24px rgba(0,176,255,0.35)";
-                el.style.color = "#40c4ff";
+                el.style.background = "rgba(230,34,76,0.28)";
+                el.style.borderColor = "rgba(255,77,115,0.9)";
+                el.style.boxShadow = "0 0 24px rgba(230,34,76,0.4)";
+                el.style.color = "#ffffff";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.background = "rgba(0,176,255,0.12)";
-                el.style.borderColor = "rgba(0,176,255,0.45)";
-                el.style.boxShadow = "0 0 16px rgba(0,176,255,0.15)";
-                el.style.color = "#e8eef5";
+                el.style.background = "rgba(230,34,76,0.14)";
+                el.style.borderColor = "rgba(230,34,76,0.5)";
+                el.style.boxShadow = "0 0 16px rgba(230,34,76,0.18)";
+                el.style.color = "#ffffff";
               }}
             >
               <span className="text-[#39ff14]">$</span>
@@ -327,18 +319,18 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 font-mono text-xs px-4 py-2 rounded-md transition-all duration-200"
                 style={{
-                  color: "var(--text-muted)",
-                  border: "1px solid rgba(255,255,255,0.1)",
+                  color: "#ffffff",
+                  border: "1px solid rgba(255,255,255,0.15)",
                 }}
                 onMouseEnter={(e) => {
                   const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "rgba(0,176,255,0.4)";
-                  el.style.color = "var(--accent)";
+                  el.style.borderColor = "rgba(230,34,76,0.5)";
+                  el.style.color = "#ffffff";
                 }}
                 onMouseLeave={(e) => {
                   const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "rgba(255,255,255,0.1)";
-                  el.style.color = "var(--text-muted)";
+                  el.style.borderColor = "rgba(255,255,255,0.15)";
+                  el.style.color = "#ffffff";
                 }}
               >
                 $ cat docs.md →
@@ -348,7 +340,7 @@ function Tile({ tool, index, featured, stretch }: TileProps) {
 
           {/* Active Terminal Cursor */}
           <div className="flex items-center gap-1.5 text-xs text-gray-500 font-mono">
-            <span className="w-2 h-3 bg-[#00b0ff] animate-pulse inline-block" />
+            <span className="w-2 h-3 bg-[#e6224c] animate-pulse inline-block" />
           </div>
         </div>
       </div>

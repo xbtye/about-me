@@ -5,17 +5,12 @@ import { motion, useInView } from "framer-motion";
 import { capabilities } from "@/lib/data/capabilities";
 
 function CapabilityCard({ cap, index }: { cap: (typeof capabilities)[number]; index: number }) {
-  const isCyan = cap.accentColor === "cyan";
-  const accentVar  = isCyan ? "var(--accent)"      : "var(--neon-red)";
-  const accentSoft = isCyan ? "var(--accent-soft)"  : "var(--neon-red-soft)";
-  const borderBase = isCyan ? "rgba(0,176,255,0.12)"     : "rgba(0,229,255,0.12)";
-  const borderHover= isCyan ? "rgba(0,176,255,0.5)"      : "rgba(0,229,255,0.45)";
-  const glowBase   = isCyan
-    ? "0 0 20px rgba(0,176,255,0.08), inset 0 1px 0 rgba(0,176,255,0.05)"
-    : "0 0 20px rgba(0,229,255,0.08), inset 0 1px 0 rgba(0,229,255,0.05)";
-  const glowHover  = isCyan
-    ? "0 0 40px rgba(0,176,255,0.15), inset 0 1px 0 rgba(0,176,255,0.08)"
-    : "0 0 40px rgba(0,229,255,0.12), inset 0 1px 0 rgba(0,229,255,0.08)";
+  const accentVar  = "var(--accent)";
+  const accentSoft = "var(--accent-soft)";
+  const borderBase = "rgba(230, 34, 76, 0.15)";
+  const borderHover= "rgba(230, 34, 76, 0.55)";
+  const glowBase   = "0 0 20px rgba(230,34,76,0.08), inset 0 1px 0 rgba(230,34,76,0.05)";
+  const glowHover  = "0 0 40px rgba(230,34,76,0.18), inset 0 1px 0 rgba(230,34,76,0.09)";
 
   return (
     <motion.article

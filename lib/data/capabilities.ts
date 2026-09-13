@@ -11,7 +11,7 @@ export const capabilities: Capability[] = [
     id: "01",
     title: "SIEM & Log Analysis",
     description: "Monitoring network/system activity, parsing logs, and identifying anomalies or suspicious behavior using SIEM platforms.",
-    accentColor: "cyan",
+    accentColor: "red",
     techniques: [
       "Splunk search & correlation",
       "Linux syslog analysis",
@@ -43,7 +43,7 @@ export const capabilities: Capability[] = [
     id: "03",
     title: "Security Automation & Dev",
     description: "Building custom defensive tools and scripting automations to streamline SOC analyst workflows and reduce manual triage time.",
-    accentColor: "cyan",
+    accentColor: "red",
     techniques: [
       "Python security scripting",
       "AI-driven phishing analysis",

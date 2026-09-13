@@ -51,7 +51,7 @@ const channels = [
 ];
 
 function Corner({ pos }: { pos: "tl" | "tr" | "bl" | "br" }) {
-  const base: React.CSSProperties = { position: "absolute", width: 16, height: 16, border: "1.5px solid rgba(0,176,255,0.55)" };
+  const base: React.CSSProperties = { position: "absolute", width: 16, height: 16, border: "1.5px solid rgba(230,34,76,0.6)" };
   const sides: Record<string, React.CSSProperties> = {
     tl: { top: 0, left: 0, borderRight: "none", borderBottom: "none" },
     tr: { top: 0, right: 0, borderLeft: "none", borderBottom: "none" },
@@ -192,7 +192,7 @@ export default function Contact() {
                 unoptimized
                 className="object-contain object-top"
                 style={{
-                  filter: "drop-shadow(0 0 28px rgba(0,176,255,0.45)) drop-shadow(0 0 10px rgba(0,229,255,0.2))",
+                  filter: "drop-shadow(0 0 28px rgba(230,34,76,0.45)) drop-shadow(0 0 10px rgba(255,77,115,0.2))",
                 }}
               />
 

@@ -57,23 +57,23 @@ const tools: Tool[] = [
   },
   {
     name: "AI & Automations",
-    accentColor: "#00E5FF",
+    accentColor: "#ff2a4b",
     logo: (
       <svg viewBox="0 0 100 100" width="58" height="58" fill="none">
-        <circle cx="12" cy="20" r="8" fill="#00E5FF" />
-        <circle cx="12" cy="50" r="8" fill="#00E5FF" />
-        <circle cx="12" cy="80" r="8" fill="#00E5FF" />
-        <circle cx="50" cy="35" r="8" fill="#00E5FF" />
-        <circle cx="50" cy="65" r="8" fill="#00E5FF" />
-        <circle cx="88" cy="50" r="8" fill="#00E5FF" />
-        <line x1="20" y1="20" x2="42" y2="35" stroke="#00E5FF" strokeWidth="2" opacity="0.5" />
-        <line x1="20" y1="50" x2="42" y2="35" stroke="#00E5FF" strokeWidth="2" opacity="0.5" />
-        <line x1="20" y1="80" x2="42" y2="35" stroke="#00E5FF" strokeWidth="2" opacity="0.5" />
-        <line x1="20" y1="20" x2="42" y2="65" stroke="#00E5FF" strokeWidth="2" opacity="0.5" />
-        <line x1="20" y1="50" x2="42" y2="65" stroke="#00E5FF" strokeWidth="2" opacity="0.5" />
-        <line x1="20" y1="80" x2="42" y2="65" stroke="#00E5FF" strokeWidth="2" opacity="0.5" />
-        <line x1="58" y1="35" x2="80" y2="50" stroke="#00E5FF" strokeWidth="2" opacity="0.5" />
-        <line x1="58" y1="65" x2="80" y2="50" stroke="#00E5FF" strokeWidth="2" opacity="0.5" />
+        <circle cx="12" cy="20" r="8" fill="#ff2a4b" />
+        <circle cx="12" cy="50" r="8" fill="#ff2a4b" />
+        <circle cx="12" cy="80" r="8" fill="#ff2a4b" />
+        <circle cx="50" cy="35" r="8" fill="#ff2a4b" />
+        <circle cx="50" cy="65" r="8" fill="#ff2a4b" />
+        <circle cx="88" cy="50" r="8" fill="#ff2a4b" />
+        <line x1="20" y1="20" x2="42" y2="35" stroke="#ff2a4b" strokeWidth="2" opacity="0.5" />
+        <line x1="20" y1="50" x2="42" y2="35" stroke="#ff2a4b" strokeWidth="2" opacity="0.5" />
+        <line x1="20" y1="80" x2="42" y2="35" stroke="#ff2a4b" strokeWidth="2" opacity="0.5" />
+        <line x1="20" y1="20" x2="42" y2="65" stroke="#ff2a4b" strokeWidth="2" opacity="0.5" />
+        <line x1="20" y1="50" x2="42" y2="65" stroke="#ff2a4b" strokeWidth="2" opacity="0.5" />
+        <line x1="20" y1="80" x2="42" y2="65" stroke="#ff2a4b" strokeWidth="2" opacity="0.5" />
+        <line x1="58" y1="35" x2="80" y2="50" stroke="#ff2a4b" strokeWidth="2" opacity="0.5" />
+        <line x1="58" y1="65" x2="80" y2="50" stroke="#ff2a4b" strokeWidth="2" opacity="0.5" />
       </svg>
     ),
   },

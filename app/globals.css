@@ -5,23 +5,23 @@
   --bg-void:          #04060a;
   --bg-carbon:        #0a0e14;
   --bg-elevated:      #11161f;
-  --accent:        #00b0ff;
-  --accent-soft:   #40c4ff;
-  --neon-red:         #00e5ff;
-  --neon-red-soft:    #80deea;
+  --accent:           #e6224c;
+  --accent-soft:      #ff4d73;
+  --neon-red:         #ff1744;
+  --neon-red-soft:    #ff6b8b;
   --chrome:           #c8d0d8;
-  --text-primary:     #e8eef5;
-  --text-muted:       #6b7785;
-  --grid-line:        rgba(0, 176, 255, 0.08);
+  --text-primary:     #ffffff;
+  --text-muted:       #8a99ad;
+  --grid-line:        rgba(230, 34, 76, 0.08);
 
   /* Shadows */
-  --glow-accent:        0 0 24px rgba(0,176,255,0.22), 0 0 70px rgba(0,176,255,0.11);
-  --glow-accent-md:     0 0 36px rgba(0,176,255,0.34), 0 0 90px rgba(0,176,255,0.15);
-  --glow-red:         0 0 20px rgba(0,229,255,0.2), 0 0 60px rgba(0,229,255,0.08);
+  --glow-accent:        0 0 24px rgba(230,34,76,0.25), 0 0 70px rgba(230,34,76,0.12);
+  --glow-accent-md:     0 0 36px rgba(230,34,76,0.38), 0 0 90px rgba(230,34,76,0.18);
+  --glow-red:           0 0 20px rgba(255,23,68,0.25), 0 0 60px rgba(255,23,68,0.12);
 
   /* Card glass */
-  --card-border:      rgba(0, 176, 255, 0.22);
-  --card-border-hover: rgba(0, 176, 255, 0.65);
+  --card-border:      rgba(230, 34, 76, 0.22);
+  --card-border-hover: rgba(230, 34, 76, 0.65);
   --card-bg:          rgba(255, 255, 255, 0.03);
 }
 
@@ -66,8 +66,8 @@ body {
 
 /* ── Selection ──────────────────────────────────────────────── */
 ::selection {
-  background: rgba(0, 176, 255, 0.18);
-  color: var(--text-primary);
+  background: rgba(230, 34, 76, 0.28);
+  color: #ffffff;
 }
 
 /* ── Focus visible ──────────────────────────────────────────── */
@@ -84,11 +84,11 @@ body {
   background: var(--bg-void);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 176, 255, 0.2);
+  background: rgba(230, 34, 76, 0.25);
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 176, 255, 0.4);
+  background: rgba(230, 34, 76, 0.5);
 }
 
 /* ── Utility: glow text ─────────────────────────────────────── */
@@ -97,11 +97,11 @@ body {
 }
 
 .text-glow-accent {
-  text-shadow: 0 0 20px rgba(0, 176, 255, 0.7), 0 0 60px rgba(0, 176, 255, 0.25);
+  text-shadow: 0 0 20px rgba(230, 34, 76, 0.85), 0 0 60px rgba(230, 34, 76, 0.35);
 }
 
 .text-glow-red {
-  text-shadow: 0 0 20px rgba(255, 42, 61, 0.6), 0 0 60px rgba(255, 42, 61, 0.2);
+  text-shadow: 0 0 20px rgba(255, 42, 61, 0.85), 0 0 60px rgba(255, 42, 61, 0.35);
 }
 
 /* ── Utility: glass card ────────────────────────────────────── */
@@ -110,13 +110,13 @@ body {
   border: 1px solid var(--card-border);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  box-shadow: var(--glow-accent), inset 0 1px 0 rgba(0,176,255,0.04);
+  box-shadow: var(--glow-accent), inset 0 1px 0 rgba(230,34,76,0.05);
   transition: border-color 300ms ease, box-shadow 300ms ease, transform 300ms cubic-bezier(0.22,1,0.36,1);
 }
 
 .glass-card:hover {
   border-color: var(--card-border-hover);
-  box-shadow: var(--glow-accent-md), inset 0 1px 0 rgba(0,176,255,0.07);
+  box-shadow: var(--glow-accent-md), inset 0 1px 0 rgba(230,34,76,0.09);
   transform: translateY(-4px);
 }
 
@@ -175,7 +175,7 @@ body {
   width: 100%;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  box-shadow: 0 0 12px var(--accent), 0 0 40px rgba(0,176,255,0.4);
+  box-shadow: 0 0 12px var(--accent), 0 0 40px rgba(230,34,76,0.5);
   animation: boot-scan 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   z-index: 9999;
   pointer-events: none;
@@ -263,15 +263,15 @@ body {
 /* CTA touch feedback */
 @media (hover: none) {
   .hero-cta-primary:active {
-    background: rgba(0,176,255,0.14) !important;
-    border-color: rgba(0,176,255,0.85) !important;
-    box-shadow: 0 0 24px rgba(0,176,255,0.3) !important;
-    color: #40c4ff !important;
+    background: rgba(230,34,76,0.18) !important;
+    border-color: rgba(230,34,76,0.85) !important;
+    box-shadow: 0 0 24px rgba(230,34,76,0.4) !important;
+    color: #ffffff !important;
   }
 
   .hero-cta-secondary:active {
-    border-color: rgba(0,176,255,0.5) !important;
-    color: var(--neon-red-soft) !important;
+    border-color: rgba(230,34,76,0.5) !important;
+    color: #ffffff !important;
   }
 }
 

@@ -34,7 +34,7 @@ function HudCorner({ pos }: { pos: "tl" | "tr" | "bl" | "br" }) {
     position: "absolute",
     width: 20,
     height: 20,
-    border: "1.5px solid rgba(0,176,255,0.65)",
+    border: "1.5px solid rgba(230,34,76,0.65)",
   };
   const corners: Record<string, React.CSSProperties> = {
     tl: { top: 0, left: 0, borderRight: "none", borderBottom: "none" },
@@ -106,13 +106,13 @@ export default function Hero() {
               "linear-gradient(to top, #04060a 0%, rgba(4,6,10,0.78) 38%, transparent 100%)",
           }}
         />
-        {/* Cyber-blue ground fog */}
+        {/* Red ground fog */}
         <div
           className="absolute bottom-0 left-0 right-0"
           style={{
             height: "32%",
             background:
-              "radial-gradient(ellipse 90% 55% at 55% 100%, rgba(0,176,255,0.07) 0%, transparent 70%)",
+              "radial-gradient(ellipse 90% 55% at 55% 100%, rgba(230,34,76,0.08) 0%, transparent 70%)",
           }}
         />
         {/* Right edge vignette */}
@@ -241,7 +241,7 @@ export default function Hero() {
                     fontFamily: "var(--font-mono)",
                     fontSize: "0.58rem",
                     letterSpacing: "0.22em",
-                    color: "rgba(0,176,255,0.75)",
+                    color: "rgba(255,117,140,0.85)",
                   }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: [0.4, 1, 0.4] }}
@@ -280,8 +280,8 @@ export default function Hero() {
                   right: 0,
                   height: 1,
                   background:
-                    "linear-gradient(90deg, transparent, rgba(0,176,255,0.55), rgba(0,176,255,0.55), transparent)",
-                  boxShadow: "0 0 10px rgba(0,176,255,0.4)",
+                    "linear-gradient(90deg, transparent, rgba(230,34,76,0.6), rgba(230,34,76,0.6), transparent)",
+                  boxShadow: "0 0 10px rgba(230,34,76,0.5)",
                 }}
                 initial={{ top: "0%" }}
                 animate={{ top: "100%" }}
@@ -313,14 +313,14 @@ export default function Hero() {
                   className="reticle-locked"
                   aria-hidden="true"
                 >
-                  <circle cx="30" cy="30" r="22" stroke="rgba(0,176,255,0.45)" strokeWidth="1" className="reticle-outer-ring" />
-                  <circle cx="30" cy="30" r="28" stroke="rgba(0,176,255,0.12)" strokeWidth="0.5" className="reticle-sweep-ring" />
-                  <circle cx="30" cy="30" r="4" stroke="rgba(0,176,255,0.65)" strokeWidth="1" />
-                  <circle cx="30" cy="30" r="1.5" fill="rgba(0,176,255,0.8)" />
-                  <line x1="30" y1="4" x2="30" y2="20" stroke="rgba(0,176,255,0.5)" strokeWidth="1" />
-                  <line x1="30" y1="40" x2="30" y2="56" stroke="rgba(0,176,255,0.5)" strokeWidth="1" />
-                  <line x1="4" y1="30" x2="20" y2="30" stroke="rgba(0,176,255,0.5)" strokeWidth="1" />
-                  <line x1="40" y1="30" x2="56" y2="30" stroke="rgba(0,176,255,0.5)" strokeWidth="1" />
+                  <circle cx="30" cy="30" r="22" stroke="rgba(230,34,76,0.5)" strokeWidth="1" className="reticle-outer-ring" />
+                  <circle cx="30" cy="30" r="28" stroke="rgba(230,34,76,0.15)" strokeWidth="0.5" className="reticle-sweep-ring" />
+                  <circle cx="30" cy="30" r="4" stroke="rgba(230,34,76,0.75)" strokeWidth="1" />
+                  <circle cx="30" cy="30" r="1.5" fill="rgba(230,34,76,0.9)" />
+                  <line x1="30" y1="4" x2="30" y2="20" stroke="rgba(230,34,76,0.55)" strokeWidth="1" />
+                  <line x1="30" y1="40" x2="30" y2="56" stroke="rgba(230,34,76,0.55)" strokeWidth="1" />
+                  <line x1="4" y1="30" x2="20" y2="30" stroke="rgba(230,34,76,0.55)" strokeWidth="1" />
+                  <line x1="40" y1="30" x2="56" y2="30" stroke="rgba(230,34,76,0.55)" strokeWidth="1" />
                 </svg>
               </motion.div>
             )}
@@ -375,7 +375,7 @@ export default function Hero() {
               fontFamily: "var(--font-mono)",
               fontSize: "0.55rem",
               letterSpacing: "0.14em",
-              color: "rgba(0,176,255,0.35)",
+              color: "rgba(230,34,76,0.45)",
             }}
           >
             INTEL // CLASSIFIED
@@ -398,7 +398,7 @@ export default function Hero() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4, delay: 0.3 }}
               >
-                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.5.rem", letterSpacing: "0.12em", color: "rgba(0,176,255,0.3)" }}>
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.5rem", letterSpacing: "0.12em", color: "rgba(230,34,76,0.4)" }}>
                   TARGET_COORD
                 </span>
                 <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", letterSpacing: "0.08em", color: "rgba(107,119,133,0.6)" }}>
@@ -437,7 +437,7 @@ export default function Hero() {
                     <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.48rem", letterSpacing: "0.12em", color: "rgba(107,119,133,0.55)" }}>
                       {line.label}
                     </span>
-                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.5rem", letterSpacing: "0.08em", color: "rgba(0,176,255,0.55)" }}>
+                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.5rem", letterSpacing: "0.08em", color: "rgba(230,34,76,0.65)" }}>
                       {line.value}
                     </span>
                   </motion.div>
@@ -497,7 +497,7 @@ export default function Hero() {
                   transform: "translateX(-50%)",
                   width: 1,
                   height: "14%",
-                  background: "linear-gradient(to top, rgba(0,176,255,0.2), transparent)",
+                  background: "linear-gradient(to top, rgba(230,34,76,0.25), transparent)",
                 }}
                 initial={{ scaleY: 0, opacity: 0 }}
                 animate={{ scaleY: 1, opacity: 1 }}
@@ -566,27 +566,27 @@ export default function Hero() {
             href="#tools"
             className="hero-cta-primary group relative inline-flex items-center gap-2 px-7 py-3 rounded-sm font-mono text-sm font-medium transition-all duration-300 focus-visible:ring-2 focus-visible:ring-offset-2"
             style={{
-              background: "rgba(0,176,255,0.08)",
-              color: "var(--text-primary)",
-              border: "1px solid rgba(0,176,255,0.5)",
+              background: "rgba(230,34,76,0.12)",
+              color: "#ffffff",
+              border: "1px solid rgba(230,34,76,0.5)",
               boxShadow:
-                "0 0 18px rgba(0,176,255,0.15), inset 0 1px 0 rgba(0,176,255,0.06)",
+                "0 0 18px rgba(230,34,76,0.2), inset 0 1px 0 rgba(230,34,76,0.08)",
             }}
             onMouseEnter={(e) => {
               const el = e.currentTarget as HTMLElement;
-              el.style.background = "rgba(0,176,255,0.14)";
-              el.style.borderColor = "rgba(0,176,255,0.85)";
+              el.style.background = "rgba(230,34,76,0.25)";
+              el.style.borderColor = "rgba(255,77,115,0.9)";
               el.style.boxShadow =
-                "0 0 32px rgba(0,176,255,0.35), 0 0 80px rgba(0,176,255,0.12), inset 0 1px 0 rgba(0,176,255,0.1)";
-              el.style.color = "#40c4ff";
+                "0 0 32px rgba(230,34,76,0.4), 0 0 80px rgba(230,34,76,0.15), inset 0 1px 0 rgba(255,255,255,0.1)";
+              el.style.color = "#ffffff";
             }}
             onMouseLeave={(e) => {
               const el = e.currentTarget as HTMLElement;
-              el.style.background = "rgba(0,176,255,0.08)";
-              el.style.borderColor = "rgba(0,176,255,0.5)";
+              el.style.background = "rgba(230,34,76,0.12)";
+              el.style.borderColor = "rgba(230,34,76,0.5)";
               el.style.boxShadow =
-                "0 0 18px rgba(0,176,255,0.15), inset 0 1px 0 rgba(0,176,255,0.06)";
-              el.style.color = "var(--text-primary)";
+                "0 0 18px rgba(230,34,76,0.2), inset 0 1px 0 rgba(230,34,76,0.08)";
+              el.style.color = "#ffffff";
             }}
           >
             Explore Projects
@@ -600,19 +600,19 @@ export default function Hero() {
             className="hero-cta-secondary group inline-flex items-center gap-2 px-7 py-3 rounded-sm font-mono text-sm font-medium transition-all duration-300 focus-visible:ring-2 focus-visible:ring-offset-2"
             style={{
               background: "transparent",
-              color: "var(--text-primary)",
-              border: "1px solid rgba(232,238,245,0.15)",
+              color: "#ffffff",
+              border: "1px solid rgba(232,238,245,0.2)",
             }}
             onMouseEnter={(e) => {
               const el = e.currentTarget as HTMLElement;
-              el.style.borderColor = "rgba(0,176,255,0.5)";
-              el.style.color = "var(--neon-red-soft)";
-              el.style.boxShadow = "0 0 16px rgba(0,176,255,0.1)";
+              el.style.borderColor = "rgba(230,34,76,0.6)";
+              el.style.color = "#ffffff";
+              el.style.boxShadow = "0 0 16px rgba(230,34,76,0.25)";
             }}
             onMouseLeave={(e) => {
               const el = e.currentTarget as HTMLElement;
-              el.style.borderColor = "rgba(232,238,245,0.15)";
-              el.style.color = "var(--text-primary)";
+              el.style.borderColor = "rgba(232,238,245,0.2)";
+              el.style.color = "#ffffff";
               el.style.boxShadow = "none";
             }}
           >
@@ -671,8 +671,8 @@ export default function Hero() {
       <motion.div
         className="absolute bottom-0 left-0 right-0 overflow-hidden py-3"
         style={{
-          background: "rgba(4,10,20,0.55)",
-          borderTop: "1px solid rgba(0,176,255,0.12)",
+          background: "rgba(18,4,8,0.55)",
+          borderTop: "1px solid rgba(230,34,76,0.18)",
           zIndex: 20,
         }}
         initial={{ opacity: 0 }}
