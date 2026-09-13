@@ -83,7 +83,7 @@ export default function Contact() {
               animate={inView ? { opacity: 0.6 } : {}}
               transition={{ duration: 0.5 }}
             >
-              05 / 06
+              06 / 06
             </motion.span>
             <motion.h2
               id="contact-heading"
