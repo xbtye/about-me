@@ -251,7 +251,7 @@ export default function GithubActivity() {
         return {
           background: "#39d353",
           border: "1px solid rgba(57,211,83,1)",
-          boxShadow: "0 0 10px rgba(57,211,83,0.8), 0 0 18px rgba(0,229,255,0.3)",
+          boxShadow: "0 0 10px rgba(57,211,83,0.8), 0 0 18px rgba(230,34,76,0.3)",
         };
       default:
         return {

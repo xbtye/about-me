@@ -1,7 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono, Orbitron } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono, Orbitron, Press_Start_2P } from "next/font/google";
 import ParticlesBackground from "@/components/effects/ParticlesBackground";
 import "./globals.css";
+
+const pressStart = Press_Start_2P({
+  variable: "--font-minecraft",
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
+});
 
 const orbitron = Orbitron({
   variable: "--font-orbitron",
@@ -73,7 +80,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} ${orbitron.variable} h-full`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} ${orbitron.variable} ${pressStart.variable} h-full`}
     >
       <body className="min-h-full flex flex-col antialiased relative">
         <ParticlesBackground />

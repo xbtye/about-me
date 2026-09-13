@@ -168,7 +168,7 @@ export default function Hero() {
         {"VISHAL".split("").map((letter, i) => (
           <motion.span
             key={i}
-            className="hero-watermark-letter font-orbitron font-black select-none"
+            className="hero-watermark-letter font-minecraft font-black select-none"
             style={{
               lineHeight: 1,
               letterSpacing: "0.06em",
@@ -529,8 +529,8 @@ export default function Hero() {
 
         {/* Headline */}
         <motion.h1
-          className="font-display font-bold leading-[0.95] tracking-tight mb-6"
-          style={{ fontSize: "clamp(3rem, 7vw, 6rem)" }}
+          className="font-minecraft font-normal leading-[1.3] tracking-normal mb-6"
+          style={{ fontSize: "clamp(1.6rem, 4.2vw, 3.2rem)" }}
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}

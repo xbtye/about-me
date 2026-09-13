@@ -41,6 +41,7 @@
   --font-display: 'Space Grotesk', sans-serif;
   --font-sans:    'Inter', sans-serif;
   --font-mono:    'JetBrains Mono', monospace;
+  --font-minecraft: 'Minecraft', monospace;
 }
 
 /* ── Base ───────────────────────────────────────────────────── */
@@ -289,4 +290,8 @@ body {
   .glass-card:hover {
     transform: none;
   }
+}
+
+.font-minecraft {
+  font-family: var(--font-minecraft), monospace;
 }
