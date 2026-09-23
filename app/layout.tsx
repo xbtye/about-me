@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Space_Grotesk, Inter, JetBrains_Mono, Orbitron, Press_Start_2P } from "next/font/google";
 import ParticlesBackground from "@/components/effects/ParticlesBackground";
 import "./globals.css";
@@ -88,6 +89,19 @@ export default function RootLayout({
           {children}
         </div>
       </body>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-X12TBV8TX6"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-X12TBV8TX6');
+        `}
+      </Script>
     </html>
   );
 }
