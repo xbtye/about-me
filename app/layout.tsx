@@ -83,25 +83,27 @@ export default function RootLayout({
       lang="en"
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} ${orbitron.variable} ${pressStart.variable} h-full`}
     >
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-X12TBV8TX6"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-X12TBV8TX6');
+          `}
+        </Script>
+      </head>
       <body className="min-h-full flex flex-col antialiased relative">
         <ParticlesBackground />
         <div className="relative z-10 flex flex-col flex-1">
           {children}
         </div>
       </body>
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-X12TBV8TX6"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-X12TBV8TX6');
-        `}
-      </Script>
     </html>
   );
 }
